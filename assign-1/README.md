@@ -19,4 +19,4 @@ Data model = {
 - Install node, if needed
 - npm install request, if needed
 - node main.js to run scraping
-- Data saved in /Data
+- Data saved in /data
