@@ -39,5 +39,5 @@ queryEl.each((i, el) => {
 
 console.log(data)
 
-// fs.writeFileSync('data/zone8-location_data.txt', JSON.stringify(data), data);
+fs.writeFileSync('data/zone8-location_data.txt', JSON.stringify(data), data);
 fs.writeFileSync('data/zone8-location_data.json', JSON.stringify(data), data);
