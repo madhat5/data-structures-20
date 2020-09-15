@@ -32,10 +32,12 @@ queryEl.each((i, el) => {
     data.push({
         locationName : $(el).children('h4').text(),
         address : $(el).text()
+            .trim()
+            .replace((/  |\r\n|\n|\r|\t/gm),"")
     });
 });
 
 console.log(data)
 
-// fs.writeFileSync('data/zone8-location_data.txt', data);
-fs.writeFileSync('data/zone8-location_data.json', data);
+// fs.writeFileSync('data/zone8-location_data.txt', JSON.stringify(data), data);
+fs.writeFileSync('data/zone8-location_data.json', JSON.stringify(data), data);
