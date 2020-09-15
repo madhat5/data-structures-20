@@ -1,39 +1,41 @@
 // console.log('sim sim salabim')
+// Zone 8
 
-var request = require('request');
 var fs = require('fs');
+var cheerio = require('cheerio');
 
-var n = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'];
+var dataModel = [{
+    locationName: '',
+    address: ''
+}];
+var data =[];
 
-var dataModel = {
-    url: '',
-    borough: '',
-    meetingZone: '',
-    meeting: {
-        location: '',
-        address: '',
-        hours: '',
-        notes: ''
-    }
-}
+// assign + read from var is to avoid browser request issues/blocked from making req's
+var content = fs.readFileSync('data/aa_pg08.txt');
 
-var scrapePage = function(count) {
-    // look into template string instead
-    request('https://parsons.nyc/aa/m' + count + '.html', function(err, res, body){
-        if (!err && res.statusCode == 200) {
-            fs.writeFileSync('/home/ec2-user/environment/assign-1/data/aa_pg' + count + '.txt', body);
-            
-            console.log('site visited |', 'https://parsons.nyc/aa/m' + count + '.html')
-        }
-        else {console.log("Request failed!")}
-    });
-}
+var $ = cheerio.load(content);
 
-for (let i = 0; i < n.length; i++) { // use let instead of var
-    let count = n[i]
-    // console.log(count, +count) use parseInt/parseFloat/new Number
-    // console.log('https://parsons.nyc/aa/m' + count + '.html')
+// element query selector for locations
+var queryEl = $("body > center > table > tbody > tr > td > table > tbody > tr:nth-child(2) > td > div > table > tbody > tr > td:first-child");
+// console.log(queryEl);
+
+// print to console/terminal
+queryEl.each((i, el) => {
+    // console.log($(el).text())
+    // console.log($(el).children('h4').text())
+    // console.log($(el).children('h4').text() + ':' + $(el).text());
+    // console.log(i);
     
-    scrapePage(count)
-}
+    // data.locationName += $(el).children('h4').text();
+    // data.address += $(el).text();
+    
+    data.push({
+        locationName : $(el).children('h4').text(),
+        address : $(el).text()
+    });
+});
 
+console.log(data)
+
+// fs.writeFileSync('data/zone8-location_data.txt', data);
+fs.writeFileSync('data/zone8-location_data.json', data);
