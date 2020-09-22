@@ -29,15 +29,29 @@ queryEl.each((i, el) => {
     // data.locationName += $(el).children('h4').text();
     // data.address += $(el).text();
     
+    let tempEl = $(el).text();
+    
+    tempEl= tempEl
+        .substring(tempEl.match(/\d/)["index"])
+        .replace(/\r\n|\n|\r|\t/gm,"")
+        .replace(/,.*$/,"")
+    
+    console.log(tempEl);
+    
     data.push({
         locationName : $(el).children('h4').text(),
-        address : $(el).text()
-            .trim()
-            .replace((/  |\r\n|\n|\r|\t/gm),"")
+        address : tempEl
+            // regex alwars starts+ends with // and with separated by |
+            // /regex stuff | and more stuff /
+            // g m i are individual flags
+
+            // other methods: split, match 
     });
 });
 
-console.log(data)
+// console.log(data)
 
-fs.writeFileSync('data/zone8-location_data.txt', JSON.stringify(data), data);
 fs.writeFileSync('data/zone8-location_data.json', JSON.stringify(data), data);
+
+// get used to stringify + parse
+
