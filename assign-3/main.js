@@ -1,5 +1,3 @@
-// console.log('sim sim salabim');
-
 "use strict"
 
 // dependencies
@@ -33,7 +31,14 @@ const API_URL = 'https://geoservices.tamu.edu/Services/Geocode/WebService/Geocod
 
 // geocode addresses
 let meetingsData = [];
+
 let addresses = [];
+
+json.forEach((el, i) => {
+    // console.log(el.address)
+    addresses.push(el.address)
+})
+console.log(addresses)
 
 // eachSeries in the async module iterates over an array and operates on each item in the array in series
 async.eachSeries(addresses, function(value, callback) {
