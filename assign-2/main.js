@@ -35,6 +35,7 @@ queryEl.each((i, el) => {
         .substring(tempEl.match(/\d/)["index"])
         .replace(/\r\n|\n|\r|\t/gm,"")
         .replace(/,.*$/,"")
+        // add trim
     
     console.log(tempEl);
     
