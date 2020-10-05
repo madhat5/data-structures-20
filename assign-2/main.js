@@ -36,6 +36,8 @@ queryEl.each((i, el) => {
         .replace(/\r\n|\n|\r|\t/gm,"")
         .replace(/,.*$/,"")
         // add trim
+        // remove at dash for outlier
+        // other outlier?
     
     console.log(tempEl);
     
