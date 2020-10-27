@@ -71,3 +71,15 @@ function runApp() {
     // dataCheck();
 }
 runApp();
+
+
+
+
+
+// if PSQL data check function == true or != null {
+//     drop table 
+//     create table
+//     populate table
+// } else {
+//     populae table
+// }
