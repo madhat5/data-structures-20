@@ -1,5 +1,7 @@
 # Visual Analytics of Multivariate Event Sequence Data in Racquet Sports 
 - Jiang Wu
+> https://virtual.ieeevis.org/session_f-papers-event-seq.html
+> https://virtual.ieeevis.org/paper_f-vast-1010.html
 
 ### intro
 -  badminton, tennis, ping pong (popular sports)
