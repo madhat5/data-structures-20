@@ -1,8 +1,6 @@
 # data-structures final project
 
-[sketch title](url)
-
-Title:  What influences our apartment temperature?
+[What influences our apartment temperature?](https://github.com/madhat5/data-structures-20/blob/master/assign-10/img/DS-interface_design.png?raw=true)
 
 - Interactivity:
     - Hover states to provide additional data attributes on plot chart
