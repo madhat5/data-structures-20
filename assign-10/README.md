@@ -2,10 +2,21 @@
 
 [sketch title](url)
 
-Summary: 
+Title:  What influences our apartment temperature?
 
-- What will the visualization look like? Will it be interactive? If so, how?
-- How will the data need to be mapped to the visual elements?
-- For that mapping, what needs to be done to the data? Be specific and clear. Will it require filtering, aggregation, restructuring, and/or something else? How will this be done?
-- What is the default view (if any)?
-- What assumptions are you making about the user?
+- Interactivity:
+    - Hover states to provide additional data attributes on plot chart
+
+- Data mapping
+    - Data object will have multiple variables. The main ones mapped onto the chart will be actual temperate and roommate guesses. 
+    - Accurate guesses will be marked as winners. Rules are based on "The price is right" - the winning temperature guess must be at or under the actual temperature.
+    - An accompanying data table will bet created below the chart, to provide a list format of the data
+
+- Data processing:
+    - a custom data object will have to be created, wich will aggregate data from multiple sources (sensor API + analog data input)
+
+- View:
+    - The default view will be as shown in the design above.
+
+- User/audience:
+    - This is aimed at apartment dwellers. Those who wish to get a better understanding of what factors influence apartment temperatures, as well as provide a use-case for how close temperature estimations can be.
